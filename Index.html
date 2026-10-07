@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Даяндын Тушоо Тою</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: #dceeff;
+    color: #17365d;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 55px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================
+   ДЕКОР
+========================= */
+
+section::before,
+section::after {
+    content: "✦";
+    position: absolute;
+    color: #d4a936;
+    font-size: 28px;
+    animation: sparkle 3s infinite ease-in-out;
+}
+
+section::before {
+    top: 12%;
+    left: 10%;
+}
+
+section::after {
+    right: 10%;
+    bottom: 15%;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    0%,100% {
+        opacity: .35;
+        transform: scale(.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+.ornament {
+    color: #c79a2b;
+    font-size: 24px;
+    letter-spacing: 8px;
+    margin: 12px 0;
+}
+
+.gold {
+    color: #bd8c20;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro {
+    background:
+        radial-gradient(circle at top, #ffffff 0%, #e9f5ff 40%, #c8e3fa 100%);
+}
+
+.envelope {
+    width: 250px;
+    height: 170px;
+    background: #ffffff;
+    border: 2px solid #d4a936;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(25,70,110,.2);
+    margin-bottom: 35px;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 90px solid #cfe7fb;
+}
+
+.envelope::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%,-50%);
+    color: #c99b2c;
+    font-size: 38px;
+}
+
+.intro-title {
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.intro-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: #bd8c20;
+    font-weight: 700;
+}
+
+.open-btn,
+.map-btn,
+.rsvp-btn {
+    border: none;
+    background: linear-gradient(135deg,#174b7a,#286b9e);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 40px;
+    font-size: 17px;
+    font-family: inherit;
+    box-shadow: 0 10px 25px rgba(24,72,110,.25);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.open-btn:hover,
+.map-btn:hover,
+.rsvp-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+#hero {
+    background: linear-gradient(180deg,#eaf6ff,#cfe8fa);
+}
+
+.hero-photo {
+    width: 270px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 140px 140px 25px 25px;
+    border: 7px solid white;
+    outline: 2px solid #d2a238;
+    box-shadow: 0 20px 45px rgba(30,70,100,.25);
+    margin: 20px 0;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    color: #173f69;
+}
+
+.subtitle {
+    font-size: 30px;
+    color: #b88920;
+    font-weight: 600;
+}
+
+.small-text {
+    font-size: 22px;
+    margin-top: 18px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+#invite {
+    background: #f7fbff;
+}
+
+.invite-box {
+    max-width: 600px;
+    background: rgba(255,255,255,.85);
+    padding: 40px 25px;
+    border-radius: 25px;
+    border: 1px solid #d5ad52;
+    box-shadow: 0 15px 40px rgba(50,80,110,.12);
+}
+
+.invite-box p {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+/* =========================
+   PHOTO STORY
+========================= */
+
+#story {
+    background: linear-gradient(180deg,#d8edff,#eef8ff);
+}
+
+.story-photo {
+    width: 92%;
+    max-width: 480px;
+    border-radius: 25px;
+    border: 5px solid white;
+    outline: 1px solid #d1a13b;
+    box-shadow: 0 20px 45px rgba(25,60,90,.25);
+    margin: 20px 0;
+}
+
+.story-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #bd8c20;
+}
+
+/* =========================
+   DATE
+========================= */
+
+#date {
+    background: #f8fcff;
+}
+
+.date-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px 20px;
+    border: 2px solid #d2a13b;
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 20px 50px rgba(40,70,100,.12);
+}
+
+.date-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 68px;
+    color: #174b7a;
+}
+
+.date-month {
+    font-size: 34px;
+    color: #bd8c20;
+    text-transform: uppercase;
+}
+
+.date-time {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+#countdown-section {
+    background: linear-gradient(180deg,#d0e8fb,#eaf6ff);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.time-box {
+    width: 75px;
+    height: 85px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #d3a442;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(30,70,100,.12);
+}
+
+.time-box span:first-child {
+    font-size: 30px;
+    color: #174b7a;
+    font-weight: bold;
+}
+
+.time-box span:last-child {
+    font-size: 14px;
+    color: #bd8c20;
+}
+
+/* =========================
+   FAMILY
+========================= */
+
+#family {
+    background: #f9fcff;
+}
+
+.family-names {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #bd8c20;
+    margin: 20px 0;
+}
+
+.family-text {
+    font-size: 24px;
+}
+
+/* =========================
+   LOCATION
+========================= */
+
+#location {
+    background: linear-gradient(180deg,#d9edff,#f8fcff);
+}
+
+.location-card {
+    max-width: 450px;
+    padding: 35px 25px;
+    background: white;
+    border-radius: 30px;
+    border: 1px solid #d4a23c;
+}
+
+.address {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-top: 15px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+#rsvp {
+    background: #eef8ff;
+}
+
+.rsvp-text {
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.rsvp-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.rsvp-btn {
+    width: 100%;
+}
+
+.no-btn {
+    background: #ffffff;
+    color: #174b7a;
+    border: 1px solid #174b7a;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final {
+    background:
+        radial-gradient(circle at center,#ffffff,#d4ebfc);
+}
+
+.final-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    color: #174b7a;
+    line-height: 1.3;
+}
+
+.final-name {
+    color: #bd8c20;
+    font-size: 43px;
+    margin-top: 20px;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #d4a23c;
+    background: white;
+    color: #174b7a;
+    font-size: 22px;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(0,0,0,.15);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.fade {
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+@media(max-width:400px) {
+
+    h1 {
+        font-size: 44px;
+    }
+
+    .intro-name {
+        font-size: 42px;
+    }
+
+    .hero-photo {
+        width: 240px;
+        height: 310px;
+    }
+
+    .invite-box p {
+        font-size: 21px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section id="intro">
+
+    <div class="envelope"></div>
+
+    <div class="intro-title">
+        СИЗГЕ ӨЗГӨЧӨ ЧАКЫРУУ БАР
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <div class="intro-name">
+        ДАЯН
+    </div>
+
+    <div class="small-text">
+        Тушоо тоюна чакырабыз!
+    </div>
+
+    <button class="open-btn" onclick="openInvitation()">
+        ЧАКЫРУУНУ АЧУУ
+    </button>
+
+</section>
+
+
+<div id="invitation" class="hidden">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section id="hero">
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <h1>ДАЯН</h1>
+
+    <div class="subtitle">
+        ТУШОО ТОЮ
+    </div>
+
+    <img
+        src="dayan1.jpg"
+        class="hero-photo"
+        alt="Даян">
+
+    <div class="small-text">
+        Алгачкы кадам — чоң кубаныч! 🤍
+    </div>
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INVITATION TEXT
+========================= -->
+
+<section id="invite">
+
+    <div class="invite-box fade">
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <p>
+            Ак тилек, ак бата менен
+            Даяныбыздын тушоосун кесип,
+            алгачкы кадамына күбө болчу
+            өзгөчө күнгө сиздерди
+            чын жүрөктөн чакырабыз.
+        </p>
+
+        <br>
+
+        <p>
+            Келип, кубанычыбызды
+            биз менен бөлүшүп кетиңиздер!
+        </p>
+
+        <div class="ornament">
+            ✦ ✦ ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PHOTO STORY
+========================= -->
+
+<section id="story">
+
+    <div class="story-title">
+        ДАЯНДЫН БАЛАЛЫК КҮНДӨРҮ
+    </div>
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <img
+        src="dayan2.jpg"
+        class="story-photo"
+        alt="Даян атасы менен">
+
+    <p class="small-text">
+        Ар бир кадам — өзүнчө тарых,
+        ар бир көз ирмем — өзгөчө эскерүү.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     DATE
+========================= -->
+
+<section id="date">
+
+    <div class="date-card">
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <div class="date-number">
+            10
+        </div>
+
+        <div class="date-month">
+            НОЯБРЬ 2026
+        </div>
+
+        <div class="date-time">
+            🕓 16:00
+        </div>
+
+        <div class="ornament">
+            ✦ ✦ ✦
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<section id="countdown-section">
+
+    <h2 class="story-title">
+        ТОЮБУЗГА КАЛГАН УБАКЫТ
+    </h2>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <span id="days">00</span>
+            <span>КҮН</span>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">00</span>
+            <span>СААТ</span>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <span>МҮНӨТ</span>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <span>СЕКУНД</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAMILY
+========================= -->
+
+<section id="family">
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <p class="family-text">
+        Урматтоо менен,
+    </p>
+
+    <div class="family-names">
+        МЫРЗАБЕК & АСЕЛЬ
+    </div>
+
+    <p class="family-text">
+        Даяндын ата-энеси
+    </p>
+
+    <div class="ornament">
+        ✦
+    </div>
+
+    <p class="small-text">
+        Сиздерди чыдамсыздык менен күтөбүз! 🤍
+    </p>
+
+</section>
+
+
+<!-- =========================
+     LOCATION
+========================= -->
+
+<section id="location">
+
+    <div class="location-card">
+
+        <div class="story-title">
+            ТОЙ ӨТӨ ТУРГАН ЖЕР
+        </div>
+
+        <div class="ornament">
+            ✦
+        </div>
+
+        <div class="address">
+            📍 Ак-Ордо 3 көчөсү<br>
+            Жаны Муун 14/15
+        </div>
+
+        <a
+            class="map-btn"
+            href="https://www.google.com/maps/search/?api=1&query=Ак-Ордо+3+көчөсү+Жаны+Муун+14%2F15"
+            target="_blank">
+
+            КАРТАДАН КӨРҮҮ 📍
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RSVP
+========================= -->
+
+<section id="rsvp">
+
+    <div class="story-title">
+        СИЗДИ КҮТӨБҮЗ! 🤍
+    </div>
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <p class="rsvp-text">
+        Даяндын тушоо тоюнда
+        сизди көргөнүбүзгө
+        абдан кубанычта болобуз!
+    </p>
+
+    <div class="rsvp-buttons">
+
+        <a
+            class="rsvp-btn"
+            href="https://wa.me/996XXXXXXXXX?text=Саламатсыздарбы!%20Даяндын%20тушоо%20тоюна%20катышам.%20🤍"
+            target="_blank">
+
+            💙 КАТЫШАМ
+
+        </a>
+
+        <a
+            class="rsvp-btn no-btn"
+            href="https://wa.me/996XXXXXXXXX?text=Саламатсыздарбы!%20Тилекке%20каршы%20Даяндын%20тушоо%20тоюна%20бара%20албайм.%20🤍"
+            target="_blank">
+
+            КАТЫША АЛБАЙМ
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section id="final">
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <div class="final-title">
+
+        АК ТИЛЕК МЕНЕН<br>
+
+        КЕЛИП, ДАЯНДЫН<br>
+
+        АЛГАЧКЫ КАДАМЫНА<br>
+
+        КҮБӨ БОЛУҢУЗДАР!
+
+    </div>
+
+    <div class="final-name">
+        ДАЯН 🤍
+    </div>
+
+    <div class="ornament">
+        ✦ ✦ ✦
+    </div>
+
+    <p class="small-text">
+        10.11.2026 | 16:00
+    </p>
+
+    <p class="small-text">
+        Мырзабек & Асель
+    </p>
+
+</section>
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-button"
+    id="musicBtn"
+    onclick="toggleMusic()">
+    🎵
+</button>
+
+
+<script>
+
+/* =========================
+   ЧАКЫРУУНУ АЧУУ
+========================= */
+
+function openInvitation() {
+
+    document.getElementById("invitation")
+        .classList.remove("hidden");
+
+    document.getElementById("intro")
+        .style.display = "none";
+
+    const music = document.getElementById("music");
+
+    music.play().catch(() => {});
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   МУЗЫКА
+========================= */
+
+let musicPlaying = false;
+
+function toggleMusic() {
+
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicBtn");
+
+    if (musicPlaying) {
+
+        music.pause();
+        button.innerHTML = "🎵";
+        musicPlaying = false;
+
+    } else {
+
+        music.play();
+        button.innerHTML = "🔊";
+        musicPlaying = true;
+
+    }
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const targetDate =
+    new Date("November 10, 2026 16:00:00").getTime();
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+
+        return;
+    }
+
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").innerHTML =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").innerHTML =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").innerHTML =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>dayan-invitation/
+│
+├── index.html
+├── dayan1.jpg
+├── dayan2.jpg
+└── music.mp3
